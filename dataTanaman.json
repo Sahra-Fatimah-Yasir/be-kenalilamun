@@ -1,101 +1,82 @@
 [
   {
     "id": 1,
-    "nama": "Avicennia-lanata",
-    "dekripsi": "Avicennia lanata merupakan pohon mangrove berukuran kecil hingga sedang. Ciri khasnya adalah permukaan daun dan ranting yang berbulu halus, sesuai dengan namanya lanata (berbulu).",
-    "ekologi": "Daunnya elips dan hijau keabu-abuan dengan permukaan bawah berbulu. Bunganya kecil berwarna kuning pucat, tersusun dalam kelompok. Tumbuh di zona depan mangrove atau bagian agak dalam",
-    "manfaat": "Berfungsi dalam menjaga kestabilan pantai, menyerap logam berat, dan juga digunakan dalam pengobatan tradisional",
-    "catatan": "Daun ini mirip dengan Xylocarpus granatum, Disarankan identifikasi lanjut menggunakan bagian bunga.",
-    "penyebaran": "Banyak ditemukan di Asia Tenggara, khususnya di pesisir Kalimantan, Sumatra, dan wilayah timur Indonesia.",
-    "imgSRCDaun": "/gambar_mangrove/daun_avicennia_lanata.jpg",
-    "imgSRCBunga": "/gambar_mangrove/bunga_avicennia_lanata.jpg"
+    "nama": "Cymodocea-rotundata",
+    "taksonomi": {
+      "kingdom": "Plantae",
+      "division": "Angiospermae",
+      "class": "Liliopsida",
+      "order": "Potamogetonales",
+      "family": "Hydrocharitaceae",
+      "genus": "Cymodocea",
+      "species": "Cymodocea rotundata"
+    },
+    "morfologi": {
+      "daun": "Linear dan datar, panjang 7-15 cm, lebar 0,2-0,4 cm, dengan 9-15 vena daun. Ujung daun sedikit berbentuk hati. Selubung daun berkembang baik dengan panjang 1,5-5,5 cm.",
+      "batang": "Batang lateral pendek, dengan 2-7 daun.",
+      "rimpang": "Halus dengan 1-3 akar bercabang di setiap simpul.",
+      "habitat": "Ditemukan di perairan dangkal."
+    },
+    "imgSRCDaun": "/gambar_lamun/cymodocea_rotundata.jpg"
   },
   {
     "id": 2,
-    "nama": "Bruguiera-cylindrica",
-    "dekripsi": "Bruguiera cylindrica memiliki akar lutut dan akar penopang yang menyebar ke samping dari pangkal pohon, dengan ketinggian terkadang mencapai 23 meter. Kulit kayunya berwarna abu-abu, relatif halus, dan memiliki sejumlah lentisel kecil.",
-    "ekologi": "Tumbuh dalam kelompok besar, biasanya di tanah liat di belakang zona Avicennia, atau di zona tengah vegetasi mangrove ke arah laut. Spesies ini juga memiliki kemampuan untuk tumbuh pada substrat yang baru terbentuk dan tidak cocok untuk spesies lain. Kemampuannya untuk tumbuh di tanah liat membuat pohon ini sangat bergantung pada akar pernapasan untuk mendapatkan suplai oksigen yang cukup, dan dengan demikian sangat responsif terhadap banjir yang berkepanjangan. Buahnya ringan dan mengapung, membantu penyebaran melalui air, tetapi pertumbuhannya lambat. Pembungaan terjadi sepanjang tahun.",
-    "manfaat": "Batang dari spesies bakau ini dapat digunakan sebagai kayu bakar. Di beberapa daerah, akar muda dari embrio dimakan dengan gula dan kelapa. Nelayan tidak menggunakan kayunya untuk keperluan memancing karena mengeluarkan bau yang dapat mengusir ikan.",
-    "catatan": "Daun ini mirip dengan Bruguiera-gymnorrhiza, Disarankan identifikasi lanjut menggunakan bagian bunga.",
-    "penyebaran": "Didistribusikan di Asia Tenggara, Australia, dan seluruh Indonesia, termasuk Irian Jaya.",
-    "imgSRCDaun": "/gambar_mangrove/daun_bruguiera_cylindrica.jpg",
-    "imgSRCBunga": "/gambar_mangrove/bunga_bruguiera_cylindrica.jpg"
+    "nama": "Enhalus-acoroides",
+    "taksonomi": {
+      "kingdom": "Plantae",
+      "division": "Angiospermae",
+      "class": "Liliopsida",
+      "order": "Hidrocharitales",
+      "family": "Hydrocharitaceae",
+      "genus": "Enhalus",
+      "species": "Enhalus acoroides"
+    },
+    "morfologi": {
+      "daun": "Daun berbentuk pita, panjang hingga 200 cm, lebar hampir 2 cm, tepi mengerut dengan 30 vena memanjang. Daun muda memiliki sedikit gerigi dengan ujung halus.",
+      "batang": "Batang pendek dan tegak, tumbuh langsung dari rimpang.",
+      "rimpang": "Tebal hingga 1 cm dengan akar seperti tali.",
+      "habitat": "Ditemukan di perairan dangkal hingga kedalaman menengah."
+    },
+    "imgSRCDaun": "/gambar_lamun/enhalus_acoroides.jpg"
   },
   {
     "id": 3,
-    "nama": "Bruguiera-gymnorrhiza",
-    "dekripsi": "Jenis bakau ini dapat mencapai ketinggian hingga 30 meter. Kulit kayunya memiliki lentisel, permukaannya berkisar dari halus hingga kasar, dan warnanya bervariasi dari abu-abu tua hingga coklat. Akarnya seperti penopang yang menyebar ke samping di pangkal pohon dan juga memiliki sejumlah akar lutut.",
-    "ekologi": "Spesies ini dominan di hutan bakau yang tinggi dan merupakan ciri khas dari tahap akhir perkembangan hutan pesisir dan tahap awal transisi ke jenis vegetasi terestrial. Tumbuh di daerah dengan salinitas rendah dan kondisi kering, serta tanah dengan aerasi yang baik. Spesies ini toleran terhadap daerah yang teduh dan terkena sinar matahari. Mereka juga tumbuh di tepi daratan hutan bakau, di sepanjang tambak, dan sungai payau pasang surut. Mereka ditemukan di pantai hanya jika erosi terjadi di daratan di depannya. Substratnya terdiri dari lumpur, pasir, dan terkadang tanah gambut hitam. Kadang-kadang ditemukan di tepi sungai yang tidak terlalu terpengaruh oleh air laut, mungkin karena buahnya terbawa arus air atau pasang surut. Regenerasi mereka sering kali terbatas jumlahnya. Bunga dan buahnya ada sepanjang tahun. Bunga relatif besar, dengan kelopak kemerahan, terjumbai, dan menarik burung untuk penyerbukan.",
-    "manfaat": "The inner part of the hypocotyl is edible (candied kandeka), mixed with sugar. Its red wood is used as firewood and to make charcoal.",
-    "catatan": "Daun ini mirip dengan Bruguiera-cylindrica, Rhizophora-apiculata, Rhizophora-mucronata. Disarankan identifikasi lanjut menggunakan bagian bunga.",
-    "penyebaran": "Dari Afrika Timur dan Madagaskar hingga Sri Lanka, Malaysia, Indonesia, dan Pasifik Barat hingga Australia yang beriklim tropis.",
-    "imgSRCDaun": "/gambar_mangrove/daun_bruguiera_gymnorrhiza.jpg",
-    "imgSRCBunga": "/gambar_mangrove/bunga_bruguiera_gymnorrhiza.jpg"
+    "nama": "Syringodium-isoetifolium",
+    "taksonomi": {
+      "kingdom": "Plantae",
+      "division": "Tracheophyta",
+      "class": "Liliopsida",
+      "order": "Alismatales",
+      "family": "Cymodoceaceae",
+      "genus": "Syringodium",
+      "species": "Syringodium isoetifolium"
+    },
+    "morfologi": {
+      "daun": "Pita, panjang hingga 30 cm, lebar 0,1–0,2 cm, tidak memiliki tulang daun yang mencolok, dengan tepi halus dan ujung meruncing.",
+      "batang": "Pendek dan tegak, muncul pada setiap ruas rimpang, dengan 2–3 helai daun pada tiap ruas.",
+      "rimpang": "Halus, menjalar, dengan 1–3 akar kecil yang bercabang pada tiap ruas.",
+      "habitat": "Tumbuh di perairan laut dangkal, biasanya di substrat berpasir atau berlumpur."
+    },
+    "imgSRCDaun": "/gambar_lamun/syringodium_isoetifolium.jpg"
   },
   {
     "id": 4,
-    "nama": "Lumnitzera-liitorea",
-    "dekripsi": "Spesies ini tumbuh tersebar dan dapat mencapai ketinggian hingga 25 meter, meskipun biasanya lebih pendek. Memiliki akar pernapasan berbentuk lutut yang berwarna coklat tua, dan kulit kayunya memiliki retakan memanjang.",
-    "ekologi": "Spesies ini sering ditemukan di daerah dengan substrat halus berlumpur di tepi daratan hutan bakau, di mana banjir jarang terjadi. Mereka juga ditemukan di sepanjang saluran air dengan pasokan air tawar yang kuat dan konstan. Pembungaan terjadi sepanjang tahun. Produksi nektar, warna bunga, dan morfologi serta lokasinya mengindikasikan bahwa penyerbukan dibantu oleh burung. Buahnya yang ringan dan mengapung memudahkan penyebarannya melalui air.",
-    "manfaat": "Kayunya kuat dan sangat tahan terhadap air. Dengan penampilannya yang menarik dan aroma seperti bunga mawar, kayu ini cocok untuk membuat lemari dan perabotan lainnya. Sayangnya, kayu yang berukuran besar sangat langka.",
-    "catatan": "",
-    "penyebaran": "Di Asia tropis, Indonesia, Australia Utara, dan Polinesia. Jarang ditemukan di pantai-pantai di Jawa.",
-    "imgSRCDaun": "/gambar_mangrove/daun_lumnitzera_liitorea.jpg",
-    "imgSRCBunga": "/gambar_mangrove/bunga_lumnitzera_liitorea.jpg"
-  },
-  {
-    "id": 5,
-    "nama": "Rhizophora-apiculata",
-    "dekripsi": "Spesies ini dapat mencapai ketinggian hingga 30 meter dengan diameter batang 50 cm. Memiliki akar khas yang dapat mencapai ketinggian hingga 5 meter, dan terkadang memiliki akar udara yang muncul dari cabang. Kulit kayunya berwarna abu-abu gelap dan bervariasi.",
-    "ekologi": "Sering ditemukan tumbuh di tanah yang halus, dalam, dan berlumpur yang terendam air pasang. Tidak menyukai substrat yang lebih keras yang bercampur pasir. Dominasinya dapat mencapai 90% dari vegetasi di lokasi tertentu. Lebih menyukai perairan pasang surut dengan masukan air tawar yang kuat dan permanen. Percabangan akar dapat tumbuh tidak normal karena serangan kumbang pada ujung akar. Kepiting juga dapat menghambat pertumbuhannya dengan mengganggu kulit akar bibit. Pertumbuhannya lambat, namun pembungaan terjadi sepanjang tahun.",
-    "manfaat": "Kayunya digunakan untuk konstruksi, kayu bakar, dan arang. Kulit kayunya mengandung hingga 30% tanin (berat kering). Cabang-cabang akarnya dapat digunakan sebagai jangkar jika dibebani dengan batu. Di Jawa, pohon ini sering ditanam di tepi tambak untuk melindungi tanggul. Sering juga digunakan untuk penghijauan.",
-    "catatan": "Daun ini mirip dengan Bruguiera-cylindrica, Bruguiera-gymnorrhiza ,Rhizophora-mucronata. Disarankan identifikasi lanjut menggunakan bagian bunga.",
-    "penyebaran": "Dari Sri Lanka, Malaysia, Indonesia hingga Australia tropis dan Kepulauan Pasifik.",
-    "imgSRCDaun": "/gambar_mangrove/daun_rhizophora_apiculata.jpg",
-    "imgSRCBunga": "/gambar_mangrove/bunga_rhizophora_apiculata.jpg"
-  },
-  {
-    "id": 6,
-    "nama": "Rhizophora-mucronata",
-    "dekripsi": "Spesies ini biasanya mencapai ketinggian maksimum 27 meter, jarang melebihi 30 meter. Batangnya dapat memiliki diameter hingga 70 cm, dengan kulit kayu berwarna gelap hingga hitam yang memiliki retakan horizontal. Ia memiliki akar tunggang dan akar udara yang tumbuh dari cabang-cabang yang lebih rendah.",
-    "ekologi": "Sering ditemukan di habitat yang sama dengan R. apiculata tetapi lebih toleran terhadap substrat yang lebih keras dan berpasir. Umumnya tumbuh dalam kelompok, dekat atau di tepi sungai pasang surut dan muara sungai, jarang sekali jauh dari perairan pasang surut. Pertumbuhan optimal terjadi di daerah yang terendam air dan tanah yang kaya akan humus. Ini adalah salah satu spesies bakau yang paling penting dan tersebar luas. Pembungaan terjadi sepanjang tahun. Bibit sering dimakan kepiting, yang menghambat pertumbuhannya. Bibit yang dikeringkan di tempat teduh selama beberapa hari menjadi lebih tahan terhadap gangguan kepiting, mungkin karena akumulasi tanin dalam jaringan yang kemudian melindunginya.",
-    "manfaat": "Kayunya digunakan untuk bahan bakar dan arang. Tanin dari kulit kayu digunakan untuk mewarnai dan terkadang sebagai obat untuk hematuria (darah dalam urin). Kadang-kadang ditanam di sepanjang kolam ikan untuk melindungi tanggul",
-    "catatan": "Daun ini mirip dengan Bruguiera-gymnorrhiza, Rhizophora-apiculata. Disarankan identifikasi lanjut menggunakan bagian bunga.",
-    "penyebaran": "Dari Afrika Timur, Asia Tenggara, seluruh Malaysia dan Indonesia, Melanesia, Mikronesia, dan bahkan ditanam di Hawaii.",
-    "imgSRCDaun": "/gambar_mangrove/daun_rhizophora_mucronata.jpg",
-    "imgSRCBunga": "/gambar_mangrove/bunga_rhizophora_mucronata.jpg"
-  },
-  {
-    "id": 7,
-    "nama": "Scyphiphora-hydrophyllacea",
-    "dekripsi": "Spesies ini memiliki pohon seperti semak yang tegak dengan banyak cabang, mencapai ketinggian maksimum 3 meter. Kulit kayunya kasar dan berwarna coklat, cabang muda memiliki resin, dan individu yang besar terkadang memiliki akar panggung",
-    "ekologi": "Tumbuh pada substrat berlumpur, berpasir, dan karang di tepi daratan hutan bakau atau di tanggul dan dekat saluran air. Tampaknya tidak toleran terhadap banjir air tawar yang berkepanjangan dan biasanya menempati lokasi yang sering tergenang air pasang. Dilaporkan tumbuh di lokasi yang tidak cocok untuk kolonisasi oleh spesies bakau lainnya. Pembungaan terjadi sepanjang tahun, mungkin penyerbukan sendiri atau oleh serangga. Nektar diproduksi oleh cakram kelenjar di dasar kelopak bunga. Banyak buah yang dihasilkan, tetapi reproduksi biji relatif rendah. Buah ini beradaptasi dengan baik untuk penyebaran air karena kulitnya yang ringan dan apung.",
-    "manfaat": "Kayu-kayu tersebut mungkin dapat digunakan untuk membuat peralatan makan, seperti sendok. Daunnya dapat digunakan untuk mengobati sakit perut",
-    "catatan": "Daun ini mirip dengan Sonneratia-alba. Disarankan identifikasi lanjut menggunakan bagian bunga.",
-    "penyebaran": "Ditemukan di India, Sri Lanka, Malaysia, Indonesia, Papua Nugini, Filipina, Kepulauan Solomon, dan Australia tropis.",
-    "imgSRCDaun": "/gambar_mangrove/daun_scyphiphora_hydrophyllacea.jpg",
-    "imgSRCBunga": "/gambar_mangrove/bunga_scyphiphora_hydrophyllacea.jpg"
-  },
-  {
-    "id": 8,
-    "nama": "Sonneratia-alba",
-    "dekripsi": "Jenis bakau ini dapat mencapai ketinggian hingga 15 meter. Kulit kayunya berwarna putih tua hingga coklat, dengan retakan memanjang yang halus. Akarnya berbentuk seperti kabel di bawah tanah dan muncul ke permukaan sebagai akar pernapasan berbentuk kerucut setinggi 25 cm.",
-    "ekologi": "Spesies perintis, tidak tahan terhadap banjir air tawar yang berkepanjangan. Menyukai tanah yang bercampur lumpur dan pasir, terkadang di atas batu dan karang. Sering ditemukan di lokasi pesisir yang terlindung dari gelombang, serta di muara sungai dan di sekitar pulau-pulau lepas pantai. Di lokasi di mana spesies tanaman lain telah ditebang, spesies ini dapat membentuk tegakan yang lebat. Pembungaan terjadi sepanjang tahun. Bunga tidak berumur panjang dan mekar sepenuhnya pada malam hari, kemungkinan diserbuki oleh ngengat, burung, dan kelelawar pemakan buah. Di daerah pantai berbatu, mereka menyebar secara vegetatif. Kunang-kunang sering menempel pada pohon-pohon ini di malam hari. Buahnya mengapung karena jaringannya yang mengandung air. Akar pernapasan tidak ditemukan pada pohon yang tumbuh di atas substrat yang keras",
-    "manfaat": "Buahnya yang asam dapat dimakan. Di Sulawesi, kayunya digunakan untuk perahu dan konstruksi, atau sebagai bahan bakar ketika tidak ada bahan bakar lain yang tersedia. Akar pernafasannya digunakan oleh masyarakat Irian untuk gabus dan pelampung.",
-    "catatan": "Daun ini mirip dengan Scyphiphora-hydrophyllacea. Disarankan identifikasi lanjut menggunakan bagian bunga.",
-    "penyebaran": "Dari Afrika Utara, Madagaskar, Asia Tenggara, Indonesia, Malaysia, Filipina, Australia tropis, hingga Oseania Barat Daya.",
-    "imgSRCDaun": "/gambar_mangrove/daun_sonneratia_alba.jpg",
-    "imgSRCBunga": "/gambar_mangrove/bunga_sonneratia_alba.jpg"
-  },
-  {
-    "id": 9,
-    "nama": "Xylocarpus-granatum",
-    "dekripsi": "Pohon ini dapat mencapai ketinggian 10-20 meter. Pohon ini memiliki akar penopang yang menyebar ke samping, berkelok-kelok dan membentuk celah. Batangnya sering berlubang, terutama pada pohon yang lebih tua. Kulit kayunya berwarna coklat muda kekuningan, tipis dan mengelupas, sedangkan pada cabang yang masih muda, kulit kayunya berkerut.",
-    "ekologi": "Tumbuh di sepanjang tepi sungai pasang surut, di tepi daratan hutan bakau, dan lingkungan payau yang tidak terlalu asin. Sering tumbuh dalam kelompok besar. Individu yang lebih tua sering ditutupi oleh epifit",
-    "manfaat": "Kayu ini hanya tersedia dalam ukuran kecil, terkadang digunakan untuk pembuatan perahu. Kulit kayunya diambil karena kandungan taninnya yang tinggi (>24% berat kering).",
-    "catatan": "Daun ini mirip dengan Avicennia-lanata. Disarankan identifikasi lanjut menggunakan bagian bunga.",
-    "penyebaran": "Dari Jawa, Madura, Bali, Karimun Jawa, Sumatra, Sulawesi, Kalimantan, Maluku, Sumba, dan Irian Jaya.",
-    "imgSRCDaun": "/gambar_mangrove/daun_xylocarpus_granatum.jpg",
-    "imgSRCBunga": "/gambar_mangrove/bunga_xylocarpus_granatum.jpg"
+    "nama": "Thalassia-hemprichii",
+    "taksonomi": {
+      "kingdom": "Plantae",
+      "division": "Angiospermae",
+      "class": "Liliopsida",
+      "order": "Hidrocharitales",
+      "family": "Hydrocharitaceae",
+      "genus": "Thalassia",
+      "species": "Thalassia hemprichii"
+    },
+    "morfologi": {
+      "daun": "Pita, panjang hingga 40 cm, lebar 0,4-1,0 cm, dengan sel-sel besar yang membentuk pita merah atau hitam.",
+      "batang": "Batang pendek dan tegak, dengan 2-6 daun.",
+      "rimpang": "Tebal dan tertutup bekas daun berbentuk segitiga.",
+      "habitat": "Ditemukan di perairan dangkal."
+    },
+    "imgSRCDaun": "/gambar_lamun/thalassia_hemprichii.jpg"
   }
-]
+] 

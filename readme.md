@@ -5,7 +5,7 @@
 4. model.pth from training model
 
 ## Step Use
-1. git clone https://github.com/muhamadnursyami/be-faster-rccn-mangrove
+1. git clone https://github.com/Sahra-Fatimah-Yasir/be-kenalilamun.git
 2. install python your laptop and settings or configuration path python in enviroment variabel.
 3. pip install -r requirements.txt
 4. pip install python-multipart

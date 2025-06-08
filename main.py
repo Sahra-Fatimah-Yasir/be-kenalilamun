@@ -17,7 +17,7 @@ from torchvision.transforms import Resize
 # 🚀 INIT FASTAPI APP
 # =====================================
 app = FastAPI()
-app.mount("/gambar_mangrove", StaticFiles(directory="gambar_mangrove"), name="gambar_mangrove")
+app.mount("/gambar_lamun", StaticFiles(directory="gambar_lamun"), name="gambar_lamun")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -31,21 +31,16 @@ app.add_middleware(
 # =====================================
 COCO_CLASSES = {
     0: "Background",
-    1: "Avicennia-lanata",
-    2: "Bruguiera-cylindrica",
-    3: "Bruguiera-gymnorrhiza",
-    4: "Lumnitzera-liitorea",
-    5: "Rhizophora-apiculata",
-    6: "Rhizophora-mucronata",
-    7: "Scyphiphora-hydrophyllacea",
-    8: "Sonneratia-alba",
-    9: "Xylocarpus-granatum",
+    1: "Cymodocea_rotundata",
+    2: "Enhalus_acoroides",
+    3: "Syringodium_isoetifolium",
+    4: "Thalassia_hemprichii"
 }
 
 # =====================================
 # 🔧 LOAD MODEL
 # =====================================
-def load_model(weights_path, num_classes=10, device="cpu"):
+def load_model(weights_path, num_classes=5, device="cpu"):
     weights = FasterRCNN_ResNet50_FPN_Weights.COCO_V1
     model = fasterrcnn_resnet50_fpn(weights=weights)
     in_features = model.roi_heads.box_predictor.cls_score.in_features
@@ -56,7 +51,7 @@ def load_model(weights_path, num_classes=10, device="cpu"):
     return model
 
 # Load model saat startup
-MODEL_PATH = "best_model.pth"  # Ganti sesuai path anda
+MODEL_PATH = "best_model.pth"  
 model = load_model(MODEL_PATH)
 device = "cpu"
 
@@ -77,14 +72,14 @@ def get_tanaman_by_label(label_name):
 # =====================================
 @app.get("/")
 def root():
-    return {"message": "FastAPI backend for Mangrove Faster R-CNN ready!"}
+    return {"message": "FastAPI backend for lamun Faster R-CNN ready!"}
 
-@app.get("/mangrove/get-data")
+@app.get("/lamun/get-data")
 def get_data():
     return JSONResponse(content=tanaman_data)
 
-@app.post("/mangrove/detect")
-async def detect_image(file: UploadFile = File(...), threshold: float = 0.6):
+@app.post("/lamun/detect")
+async def detect_image(file: UploadFile = File(...), threshold: float = 0.2):
     image_bytes = await file.read()
     image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
 
@@ -125,5 +120,5 @@ async def detect_image(file: UploadFile = File(...), threshold: float = 0.6):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=5001, reload=False)
+    uvicorn.run("main:app", host="0.0.0.0", port=5002, reload=False)
 
