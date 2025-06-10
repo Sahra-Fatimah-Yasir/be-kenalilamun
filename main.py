@@ -62,10 +62,12 @@ with open("dataTanaman.json") as f:
     tanaman_data = json.load(f)
 
 def get_tanaman_by_label(label_name):
+    label_name_normalized = label_name.lower().replace("_", "-")
     for data in tanaman_data:
-        if label_name.lower().replace(" ", "-") in data["nama"].lower().replace(" ", "-"):
+        if label_name_normalized in data["nama"].lower():
             return data
     return None
+
 
 # =====================================
 # 🛬 ROUTES
@@ -120,5 +122,5 @@ async def detect_image(file: UploadFile = File(...), threshold: float = 0.2):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("main:app", host="0.0.0.0", port=5002, reload=False)
+    uvicorn.run("main:app", host="0.0.0.0", port=5005, reload=False)
 
