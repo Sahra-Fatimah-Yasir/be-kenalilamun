@@ -100,7 +100,7 @@ def root():
 def get_data():
     return JSONResponse(content=tanaman_data)
 
-@@app.post("/lamun/detect")
+@app.post("/lamun/detect")
 async def detect_image(file: UploadFile = File(...), threshold: float = 0.4):
     image_bytes = await file.read()
     image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
