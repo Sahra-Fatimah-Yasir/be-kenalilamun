@@ -7,6 +7,7 @@ from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
 from torchvision.models.detection import FasterRCNN_ResNet50_FPN_Weights
 from torchvision.transforms import functional as F
 from PIL import Image
+import base64
 import torch
 import json
 import numpy as np
@@ -99,47 +100,41 @@ def root():
 def get_data():
     return JSONResponse(content=tanaman_data)
 
-@app.post("/lamun/detect")
+@@app.post("/lamun/detect")
 async def detect_image(file: UploadFile = File(...), threshold: float = 0.4):
-    filename = file.filename
     image_bytes = await file.read()
-    pil_image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
-    np_image = np.array(pil_image)
+    image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    np_image = np.array(image)
 
-    # Preprocessing: CLAHE + enhancement
-    img_clahe = apply_clahe(np_image)
-    img_enhanced = enhance_image(img_clahe)
+    # Preprocessing
+    img_clahe = dehaze_clahe(np_image)
+    img_enhanced = enhance_lab(img_clahe)
+
+    # Konversi hasil enhancement ke PIL
     enhanced_pil = Image.fromarray(img_enhanced)
-
-    # Simpan gambar hasil enhancement
-    os.makedirs("gambar_lamun", exist_ok=True)
-    enhanced_filename = f"enhanced_{filename}"
-    enhanced_path = f"gambar_lamun/{enhanced_filename}"
-    enhanced_pil.save(enhanced_path)
-
-    # Resize ke 640x640
-    resized = enhanced_pil.resize((640, 640))
-    image_tensor = F.to_tensor(resized).unsqueeze(0).to(device)
+    image_resized = enhanced_pil.resize((640, 640))
 
     # Deteksi
+    image_tensor = F.to_tensor(image_resized).unsqueeze(0).to(device)
     with torch.no_grad():
         outputs = model(image_tensor)[0]
 
+    # Proses hasil deteksi
     results = []
     for box, label, score in zip(outputs["boxes"], outputs["labels"], outputs["scores"]):
         if score >= threshold:
             class_name = COCO_CLASSES.get(label.item(), f"Class {label.item()}")
             x1, y1, x2, y2 = map(float, box.tolist())
 
-            scale_x = pil_image.width / 640
-            scale_y = pil_image.height / 640
+            # Skala bounding box
+            scale_x = image.width / 640
+            scale_y = image.height / 640
             x1 *= scale_x
             x2 *= scale_x
             y1 *= scale_y
             y2 *= scale_y
 
             data_tanaman = get_tanaman_by_label(class_name)
-
             results.append({
                 "label": class_name,
                 "score": round(float(score), 4),
@@ -147,10 +142,16 @@ async def detect_image(file: UploadFile = File(...), threshold: float = 0.4):
                 "data_tanaman": data_tanaman or "Data not found"
             })
 
+    # Konversi gambar enhanced ke base64
+    buffered = io.BytesIO()
+    enhanced_pil.save(buffered, format="JPEG")
+    enhanced_base64 = base64.b64encode(buffered.getvalue()).decode("utf-8")
+    enhanced_data_url = f"data:image/jpeg;base64,{enhanced_base64}"
+
     return JSONResponse(content={
         "message": "success",
         "detections": results,
-        "enhanced_image_url": f"/gambar_lamun/{enhanced_filename}"
+        "enhanced_image_base64": enhanced_data_url  
     })
 
 if __name__ == "__main__":
