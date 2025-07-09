@@ -9,7 +9,7 @@
 2. install python your laptop and settings or configuration path python in enviroment variabel.
 3. pip install -r requirements.txt
 4. pip install python-multipart
-5. uvicorn main:app --reload
+5. c
 
 ## Noted
 Model tidak di upload karena penyimpananya besar

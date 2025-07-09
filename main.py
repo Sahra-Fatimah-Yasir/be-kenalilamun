@@ -1,23 +1,25 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 from torchvision.models.detection import fasterrcnn_resnet50_fpn
 from torchvision.models.detection.faster_rcnn import FastRCNNPredictor
-from torchvision.transforms import functional as F
 from torchvision.models.detection import FasterRCNN_ResNet50_FPN_Weights
+from torchvision.transforms import functional as F
 from PIL import Image
 import torch
 import json
 import numpy as np
 import io
-from fastapi.staticfiles import StaticFiles
-from torchvision.transforms import functional as F
-from torchvision.transforms import Resize
-# =====================================
+import os
+import cv2
+
+# ==========================
 # 🚀 INIT FASTAPI APP
-# =====================================
+# ==========================
 app = FastAPI()
 app.mount("/gambar_lamun", StaticFiles(directory="gambar_lamun"), name="gambar_lamun")
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -26,9 +28,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# =====================================
+# ==========================
 # 📚 LABEL MAPPING
-# =====================================
+# ==========================
 COCO_CLASSES = {
     0: "Background",
     1: "Cymodocea_rotundata",
@@ -37,9 +39,9 @@ COCO_CLASSES = {
     4: "Thalassia_hemprichii"
 }
 
-# =====================================
+# ==========================
 # 🔧 LOAD MODEL
-# =====================================
+# ==========================
 def load_model(weights_path, num_classes=5, device="cpu"):
     weights = FasterRCNN_ResNet50_FPN_Weights.COCO_V1
     model = fasterrcnn_resnet50_fpn(weights=weights)
@@ -50,14 +52,13 @@ def load_model(weights_path, num_classes=5, device="cpu"):
     model.eval()
     return model
 
-# Load model saat startup
-MODEL_PATH = "best_model.pth"  
+MODEL_PATH = "best_model.pth"
 model = load_model(MODEL_PATH)
 device = "cpu"
 
-# =====================================
+# ==========================
 # 🔍 LOAD JSON DATA
-# =====================================
+# ==========================
 with open("dataTanaman.json") as f:
     tanaman_data = json.load(f)
 
@@ -68,10 +69,28 @@ def get_tanaman_by_label(label_name):
             return data
     return None
 
+# ==========================
+# 🖼️ Preprocessing Functions
+# ==========================
+def apply_clahe(img):
+    lab = cv2.cvtColor(img, cv2.COLOR_RGB2LAB)
+    l, a, b = cv2.split(lab)
+    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+    l_clahe = clahe.apply(l)
+    lab_clahe = cv2.merge((l_clahe, a, b))
+    return cv2.cvtColor(lab_clahe, cv2.COLOR_LAB2RGB)
 
-# =====================================
+def enhance_image(img):
+    lab = cv2.cvtColor(img, cv2.COLOR_RGB2LAB)
+    l, a, b = cv2.split(lab)
+    l = cv2.normalize(l, None, alpha=0, beta=180, norm_type=cv2.NORM_MINMAX)
+    lab_enhanced = cv2.merge((l, a, b))
+    blurred = cv2.GaussianBlur(cv2.cvtColor(lab_enhanced, cv2.COLOR_LAB2RGB), (3, 3), 0)
+    return blurred
+
+# ==========================
 # 🛬 ROUTES
-# =====================================
+# ==========================
 @app.get("/")
 def root():
     return {"message": "FastAPI backend for lamun Faster R-CNN ready!"}
@@ -81,16 +100,28 @@ def get_data():
     return JSONResponse(content=tanaman_data)
 
 @app.post("/lamun/detect")
-async def detect_image(file: UploadFile = File(...), threshold: float = 0.2):
+async def detect_image(file: UploadFile = File(...), threshold: float = 0.4):
+    filename = file.filename
     image_bytes = await file.read()
-    image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    pil_image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
+    np_image = np.array(pil_image)
 
-    # Resize ke 640x640 agar cocok dengan training model
-    image_resized = image.resize((640, 640))
+    # Preprocessing: CLAHE + enhancement
+    img_clahe = apply_clahe(np_image)
+    img_enhanced = enhance_image(img_clahe)
+    enhanced_pil = Image.fromarray(img_enhanced)
 
-    # Konversi ke tensor
-    image_tensor = F.to_tensor(image_resized).unsqueeze(0).to(device)
+    # Simpan gambar hasil enhancement
+    os.makedirs("gambar_lamun", exist_ok=True)
+    enhanced_filename = f"enhanced_{filename}"
+    enhanced_path = f"gambar_lamun/{enhanced_filename}"
+    enhanced_pil.save(enhanced_path)
 
+    # Resize ke 640x640
+    resized = enhanced_pil.resize((640, 640))
+    image_tensor = F.to_tensor(resized).unsqueeze(0).to(device)
+
+    # Deteksi
     with torch.no_grad():
         outputs = model(image_tensor)[0]
 
@@ -100,9 +131,8 @@ async def detect_image(file: UploadFile = File(...), threshold: float = 0.2):
             class_name = COCO_CLASSES.get(label.item(), f"Class {label.item()}")
             x1, y1, x2, y2 = map(float, box.tolist())
 
-            # Skala bounding box dari 640x640 ke ukuran gambar asli
-            scale_x = image.width / 640
-            scale_y = image.height / 640
+            scale_x = pil_image.width / 640
+            scale_y = pil_image.height / 640
             x1 *= scale_x
             x2 *= scale_x
             y1 *= scale_y
@@ -117,10 +147,12 @@ async def detect_image(file: UploadFile = File(...), threshold: float = 0.2):
                 "data_tanaman": data_tanaman or "Data not found"
             })
 
-    return JSONResponse(content={"message": "success", "detections": results})
-
+    return JSONResponse(content={
+        "message": "success",
+        "detections": results,
+        "enhanced_image_url": f"/gambar_lamun/{enhanced_filename}"
+    })
 
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run("main:app", host="0.0.0.0", port=5005, reload=False)
-
